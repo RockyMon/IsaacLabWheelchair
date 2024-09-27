@@ -39,6 +39,7 @@ class PreTrainedPolicyAction(ActionTerm):
         self.robot: Articulation = env.scene[cfg.asset_name]
 
         # load policy
+        print(cfg.policy_path)
         if not check_file_path(cfg.policy_path):
             raise FileNotFoundError(f"Policy file '{cfg.policy_path}' does not exist.")
         file_bytes = read_file(cfg.policy_path)

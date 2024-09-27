@@ -10,7 +10,7 @@ Cartpole balancing environment.
 import gymnasium as gym
 
 from . import agents
-from .cartpole_env_cfg import CartpoleEnvCfg
+from omni.isaac.lab_assets import WHEELCHAIR_CFG
 
 ##
 # Register Gym environments.
@@ -21,7 +21,7 @@ gym.register(
     entry_point="omni.isaac.lab.envs:ManagerBasedRLEnv",
     disable_env_checker=True,
     kwargs={
-        "env_cfg_entry_point": CartpoleEnvCfg,
+        "env_cfg_entry_point": WHEELCHAIR_CFG,
         "rl_games_cfg_entry_point": f"{agents.__name__}:rl_games_ppo_cfg.yaml",
         "rsl_rl_cfg_entry_point": agents.rsl_rl_ppo_cfg.CartpolePPORunnerCfg,
         "skrl_cfg_entry_point": f"{agents.__name__}:skrl_ppo_cfg.yaml",
